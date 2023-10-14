@@ -1,0 +1,30 @@
+services:
+  back-end:
+    build:
+      context: RecipeManagementSystem
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:mysql://mysql-container/recipemanagementdb
+      DB_USERNAME: root
+      DB_PASSWORD: devimaa2001
+    depends_on:
+      - mysql-container
+  front-end:
+    build:
+      context: recipefrontend
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+    depends_on:
+      - back-end
+  mysql-container:
+    image: mysql:8.1.0
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: recipemanagementdb
+      MYSQL_ROOT_PASSWORD: devimaa2001
+volumes:
+  dbdata:
