@@ -17,7 +17,7 @@ function App() {
 
   
   const updateRecipe = () => {
-    fetch('http://localhost:8080/recipe/getAll')
+    fetch('http://reci.fyi:8080/recipe/getAll')
       .then(response => response.json())
       .then(result => {
         setRecipes(result);
