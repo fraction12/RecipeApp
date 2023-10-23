@@ -44,7 +44,7 @@ export default function RecipeForm({onFetch}) {
           }
         const recipe={recipeTitle, cookTime, directions, ingredients};
         console.log(recipe);
-        fetch("http://localhost:8080/recipe/add", {
+        fetch("http://reci.fyi:8080/recipe/add", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify(recipe)

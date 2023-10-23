@@ -26,7 +26,7 @@ export default function DisplayRecipe({onFetch, recipes}) {
       //Delete a recipe
       const deleteRecipe = (recipeId) => {
         // Make a request to delete the recipe from the database
-        fetch(`http://localhost:8080/recipe/delete/${recipeId}`, {
+        fetch(`http://reci.fyi:8080/recipe/delete/${recipeId}`, {
           method: 'DELETE'
         })
         .then(response => {
