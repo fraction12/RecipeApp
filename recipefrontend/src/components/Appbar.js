@@ -77,7 +77,7 @@ export default function Appbar() {
             component="div"
             sx={{ flexGrow: 3, justifyContent:'right', display: 'flex'}}
           >
-            Reci.Pe
+            Reci.Fyi
           </Typography>
           
             <Search>
