@@ -63,7 +63,7 @@ export default function DisplayRecipe({onFetch, recipes}) {
         }}} >
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Reci.Pe: {recipe.id}
+              Reci.Fyi: {recipe.id}
             </Typography>
             <Typography variant="h5" component="div">
               <b>{recipe.recipeTitle}</b>

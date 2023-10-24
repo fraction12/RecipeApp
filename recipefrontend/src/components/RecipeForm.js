@@ -64,7 +64,7 @@ export default function RecipeForm({onFetch}) {
     //Main Container
     <Container >
         <Paper elevation={10} style={paperStyle} className={shake ? 'shake-animation' : ''}>
-            <h1 style={headingStyle}>Add Reci.Pe</h1>
+            <h1 style={headingStyle}>Add to Reci.Fyi</h1>
     <StyledForm noValidate autoComplete="off">
     <TextField id="outlined-basic" label="Reci.Pe Title" variant="outlined" 
     value={recipeTitle}

@@ -2,6 +2,7 @@ import { Avatar, Grid, Paper, TextField, Button } from '@mui/material'
 import React, {useState} from 'react'
 import LockIcon from '@mui/icons-material/Lock';
 import {styled} from '@mui/material/styles';
+import Logo from './Logo';
 
 const StyledForm = styled('form')({
     display: 'grid',
@@ -19,7 +20,8 @@ const StyledForm = styled('form')({
     margin: 'auto',
     align: 'center',
     backgroundColor: 'black', 
-    borderRadius: '10px'
+    borderRadius: '10px',
+    animation: 'fadeIn 1s ease-in-out forwards'
   };
   
   const headingStyle = {
@@ -33,6 +35,7 @@ const StyledForm = styled('form')({
     backgroundColor: 'white', 
     marginBottom: '15px' 
   };
+  
 
   const manageLogin = async (username, password, onLogin) => { // <-- Added parameters
     const response = await fetch('http://reci.fyi:8080/user/login', {
@@ -71,7 +74,11 @@ function Login(props) {
       });
     }
     return (
-      <Grid style={{ display: 'flex', height: '80vh' }}>
+      <Grid style={{ display: 'flex', height: '80vh', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <Grid style={{ marginTop: '100px', marginBottom: '-60px' }}>
+          <Logo />
+      </Grid>
+      
         <Paper elevation={10} style={paperStyle} className={shake ? 'shake-animation' : ''}>
           <Grid align='center'>
             <Avatar style={avStyle}>
