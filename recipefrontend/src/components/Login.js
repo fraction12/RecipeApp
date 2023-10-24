@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 import LockIcon from '@mui/icons-material/Lock';
 import {styled} from '@mui/material/styles';
 import Logo from './Logo';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from '@mui/material';
+
 
 const StyledForm = styled('form')({
     display: 'grid',
@@ -60,6 +62,8 @@ function Login(props) {
     const [username, setUsername] = useState(''); // <-- State for username
     const [password, setPassword] = useState(''); // <-- State for password
     const [shake, setShake] =useState(false);
+    const [openSignUp, setOpenSignUp] = useState(false);
+
 
     const handleSubmit = (e) => { // <-- Handle form submission
         e.preventDefault(); // Prevent default form submission
@@ -99,9 +103,43 @@ function Login(props) {
               Login
             </Button>
           </StyledForm>
+          <Button 
+            variant="contained" 
+            sx={{width: '50%', marginTop: '15px', backgroundColor: 'white', color: 'black', '&:hover': { backgroundColor: '#313131', color: 'white' } }}
+            onClick={() => setOpenSignUp(true)}
+        >
+            Sign Up
+        </Button>
+        <SignUp open={openSignUp} onClose={() => setOpenSignUp(false)} />
         </Paper>
+        
       </Grid>
     );
   }
   
   export default Login;
+
+  function SignUp({ open, onClose }) {
+    return (
+        <Dialog open={open} onClose={onClose}>
+            <DialogTitle>Sign Up</DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    Enter your details to sign up.
+                </DialogContentText>
+                <TextField autoFocus margin="dense" label="Username" fullWidth />
+                <TextField margin="dense" label="Email Address" type="email" fullWidth />
+                <TextField margin="dense" label="Password" type="password" fullWidth />
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={onClose} color="primary">
+                    Cancel
+                </Button>
+                <Button onClick={onClose} color="primary">
+                    Sign Up
+                </Button>
+            </DialogActions>
+        </Dialog>
+    );
+}
+
